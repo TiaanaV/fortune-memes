@@ -1,0 +1,21 @@
+.gradientBackground {
+  background-image: linear-gradient(
+    to right top,
+    rgb(135, 124, 217) 25%,
+    #888bd3 50%,
+    rgb(73, 102, 233) 90%
+  );
+}
+
+.appWrapper {
+  margin: 0 auto;
+  width: 1200px;
+  height: 1000px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 6fr 1fr;
+  grid-template-areas:
+    "header header header"
+    "weather main main"
+    "footer footer footer ";
+}

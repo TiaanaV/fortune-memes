@@ -1,0 +1,19 @@
+.header {
+  grid-area: header;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.logo {
+  width: 170px;
+  padding: 10px;
+}
+
+.tagline {
+  margin: 0;
+  word-wrap: break-word;
+}

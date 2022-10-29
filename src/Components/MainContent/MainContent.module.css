@@ -1,0 +1,7 @@
+.mainContent {
+  grid-area: main;
+}
+
+.mem {
+  margin: 0 100px;
+}
