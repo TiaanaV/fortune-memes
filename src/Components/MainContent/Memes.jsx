@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import startImage from "./../../assets/images/start.png";
 import style from "./MainContent.module.css";
-import { useDispatch } from "react-redux";
-import { getMemeActionCreator } from "../../reducers/memeReducer";
 import MemeItem from "./MemeItem";
 
 const memes = [
@@ -28,40 +26,33 @@ const memes = [
 ];
 
 const Memes = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(1);
-  console.log(currentImageIndex);
+  const [currentImageIndex, setCurrentImageIndex] = useState(null);
+  const [isClickButton, switchIsChickButton] = useState(false);
+  const [disabledStatus, switchDisabledStatus] = useState(false);
+
   const changeImage = () => {
+    switchIsChickButton(true);
+    switchDisabledStatus(true);
     const randomNumber = Math.floor(Math.random() * memes.length);
     setCurrentImageIndex(randomNumber);
   };
-  useEffect(() => changeImage(), []);
 
-  // const addMeme = () => {
-  //   changeImage(
-  //     "https://i.pinimg.com/originals/12/ac/a3/12aca3c4e28a267919555df9212f4e32.jpg"
-  //   );
-  // };
+  // useEffect(() => changeImage(), []);
 
   return (
     <section>
       <div className={style.mem}>
-        <img src={memes[currentImageIndex].imageUrl} width={"300px"} />
-        {/* <MemeItem image={image} /> */}
-        {/* <img src={startImg} width={"250px"} /> */}
+        {isClickButton ? (
+          <MemeItem imageUrl={memes[currentImageIndex].imageUrl} />
+        ) : (
+          <img src={startImage} width={"250px"} />
+        )}
       </div>
-      <button onClick={changeImage}>Magic</button>
+      <button onClick={changeImage} disabled={disabledStatus}>
+        Magic
+      </button>
     </section>
   );
 };
 
 export default Memes;
-
-// function getRandomMeme() {
-//   // let idNumber = Math.floor(Math.random() * memes.length);
-
-//   let idNumber = (memes) => {
-//     return memes.sort(() => Math.round(Math.random() * 100) - 50);
-//   };
-//   console.log(idNumber);
-//   dispatch(getMemeActionCreator(1));
-// }

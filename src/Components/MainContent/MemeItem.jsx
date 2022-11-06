@@ -3,7 +3,7 @@ import React from "react";
 const MemeItem = (props) => {
   return (
     <div>
-      <img src={props.image} width={"300px"} />
+      <img src={props.imageUrl} width={"350px"} />
     </div>
   );
 };
