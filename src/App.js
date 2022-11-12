@@ -4,13 +4,14 @@ import MainContent from './Components/MainContent/MainContent';
 import WeatherBar from './Components/WeatherBar/WeatherBar';
 import style from './App.module.css'
 
-function App() {
+function App(props) {
+
   return (
     <div className={style.gradientBackground}>
       <div className={style.appWrapper}>
         <Header />
         <WeatherBar />
-        <MainContent />
+        <MainContent memes={props.memesSection.memes} getRandomMeme={props.getRandomMeme} />
         <Footer />
       </div>
     </div>
